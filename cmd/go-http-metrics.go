@@ -8,7 +8,7 @@ import (
 func main() {
 	log := getLogger()
 	log.Info("starting the server")
-	s := server.NewServer(log, "", 8080)
+	s := server.NewServer(log, "0.0.0.0", 8080)
 	s.Run()
 }
 
