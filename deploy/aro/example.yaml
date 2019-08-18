@@ -2,13 +2,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: go-http-metrics
-  namespace: kube-system
+  namespace: default
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: go-http-metrics
-  namespace: kube-system
+  namespace: default
   labels:
     k8s-app: go-http-metrics
 spec:
@@ -23,7 +23,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: go-http-metrics
-  namespace: kube-system
+  namespace: default
 spec:
   selector:
     matchLabels:
@@ -58,8 +58,7 @@ spec:
   jobLabel: k8s-app
   namespaceSelector:
     matchNames:
-      - kube-system
-      - openshift-infra
+      - default
   selector:
     matchLabels:
       k8s-app: go-http-metrics
